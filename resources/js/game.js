@@ -4,18 +4,19 @@ let foundItems = []
 
 // main
 initImages()
-images.forEach(i => {
+images.forEach(image => {
     const main = document.getElementById('searchField')
     let img = document.createElement('img')
-    img.alt = i.name
-    img.src = i.src
+    img.alt = image.name
+    img.src = image.src
     img.classList.add('si')
     let bottomOfset = `${getRandomInt(30)}rem`
     let leftOfset = `${getRandomInt(60)}rem`
     img.style.bottom = bottomOfset
     img.style.left = leftOfset
     img.onclick = () => {
-        addToFoundItems(i)
+        addToFoundItems(image)
+        displayInFooter()
     }
 
     main.append(img)
@@ -51,6 +52,17 @@ function addToFoundItems(foundItem) {
     if (!found) {
         foundItems.push(foundItem)
     }
+}
+function displayInFooter() {
+    let foundItemsSection = document.getElementById('foundItems')
+    console.log(foundItemsSection)
+    foundItemsSection.innerHTML = null
+    foundItems.forEach(item => {
+        let img = document.createElement('img')
+        img.alt = item.name
+        img.src = item.src
+        foundItemsSection.append(img)
+    });
 }
 
 // test
