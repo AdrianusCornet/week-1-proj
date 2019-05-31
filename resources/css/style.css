@@ -13,3 +13,7 @@ footer{
     background-color: rgb(185, 223, 255);
     height: 20vh;
 }
+.si{
+    height: 50px;
+    position: absolute;
+}
