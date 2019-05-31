@@ -3,8 +3,13 @@ let images = []
 
 // main
 initImages()
-images.forEach(img => {
+images.forEach(im => {
     const main = document.getElementById('searchField')
+    let img = document.createElement('img')
+    img.alt = im.name
+    img.src = im.src
+
+    main.append(img)
 });
 
 // function's
@@ -16,9 +21,9 @@ function getRandomInt(max, min = 0) {
     return n
 }
 function initImages() {
-    images.push(initImage('../img/obj/bubble-navy-blue-th.png', 'navyBlue'))
-    images.push(initImage('../img/obj/bubble-red-th.png', 'red'))
-    images.push(initImage('../img/obj/bubble-sky-blue-th.png', 'skyBlue'))
+    images.push(initImage('./resources/img/obj/bubble-navy-blue-th.png', 'navyBlue'))
+    images.push(initImage('./resources/img/obj/bubble-red-th.png', 'red'))
+    images.push(initImage('./resources/img/obj/bubble-sky-blue-th.png', 'skyBlue'))
 }
 function initImage(src, name) {
     let i = {
